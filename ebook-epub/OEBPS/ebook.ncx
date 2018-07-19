@@ -1,0 +1,67 @@
+<?xml version="1.0"?> 
+<!DOCTYPE ncx PUBLIC "-//NISO//DTD ncx 2005-1//EN" 
+"http://www.daisy.org/z3986/2005/ncx-2005-1.dtd"> 
+<ncx xmlns="http://www.daisy.org/z3986/2005/ncx/" version="2005-1"><head> 
+<meta name="dtb:uid" content="http://students.engr.scu.edu/-sschaeck/"/> 
+<meta name="dtb:depth" content="3"/> 
+<meta name="dtb:totalPageCount" content="0"/> 
+<meta name="dtb:maxPageNumber" content="0"/> 
+</head> 
+<docTitle> 
+<text>Taiwan: East meets West</text> 
+</docTitle> 
+<navMap>     
+<navPoint id="navPoint-1" playOrder="1"> 
+<navLabel> 
+<text> 1   Lorem Ipsum</text> 
+</navLabel> 
+<content src="ebookse1.html#x4-20001" /></navPoint> 
+    
+<navPoint id="navPoint-2" playOrder="2"> 
+<navLabel> 
+<text> 2
+Lorem Ipsum</text> 
+</navLabel> 
+<content src="ebookse2.html#x5-30002" /></navPoint> 
+    
+<navPoint id="navPoint-3" playOrder="3"> 
+<navLabel> 
+<text>  3   Lorem Ipsum</text> 
+</navLabel> 
+<content src="ebookse3.html#x6-40003" /></navPoint> 
+    
+<navPoint id="navPoint-4" playOrder="4"> 
+<navLabel> 
+<text>  4   Lorem Ipsum</text> 
+</navLabel> 
+<content src="ebookse4.html#x7-50004" /></navPoint> 
+    
+<navPoint id="navPoint-5" playOrder="5"> 
+<navLabel> 
+<text>  5   Lorem
+                                                                     
+                                                                     
+Ipsum</text> 
+</navLabel> 
+<content src="ebookse5.html#x8-60005" /></navPoint> 
+    
+<navPoint id="navPoint-6" playOrder="6"> 
+<navLabel> 
+<text>  6   Lorem Ipsum</text> 
+</navLabel> 
+<content src="ebookse6.html#x9-70006" /></navPoint> 
+    
+<navPoint id="navPoint-7" playOrder="7"> 
+<navLabel> 
+<text>  7   Lorem Ipsum</text> 
+</navLabel> 
+<content src="ebookse7.html#x10-80007" /></navPoint> 
+    
+<navPoint id="navPoint-8" playOrder="8"> 
+<navLabel> 
+<text>  8   Lorem Ipsum</text> 
+</navLabel> 
+<content src="ebookse8.html#x11-90008" />
+</navPoint> 
+</navMap>
+</ncx> 

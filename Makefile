@@ -25,8 +25,8 @@ pdf:
 
 # .epub to be viewed with fbreader etc
 epub:
-	tex4ebook -c tex4ht -i -f epub -t ${ebook}
-	tex4ebook -c tex4ht -i -f epub -t ${ebook}
+	tex4ebook ${ebook}
+	tex4ebook ${ebook}
 
 
 cover:

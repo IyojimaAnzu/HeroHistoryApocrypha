@@ -14,3 +14,23 @@
 2018/07/19 14:35:15 I'll make the README
 2018/07/19 14:36:40 okay lets see how it looks on gitlab
 2018/07/19 14:38:55 hmmm how to do nested ordered lists on markdown?
+2018/07/19 14:47:03 great so to make the nested lists simply have
+2018/07/19 14:47:13 additional indentation
+2018/07/19 14:47:49 there so the epub creation doesn't work but may not have the dependencies
+2018/07/19 14:48:10 I'll move the dependenices higher up so people install them before trying to compile
+2018/07/19 14:48:46 oh I guess they are okay prominent can make an apt installne
+2018/07/19 14:48:51 line
+2018/07/19 14:49:25 can make a note of this for the continuous integration
+2018/07/19 14:53:01 seems tex4ebook usage is outdated will have to update it
+2018/07/19 14:53:15 first can check how the other things are going
+2018/07/19 14:54:01 great so ps pdf and dvi are working
+2018/07/19 14:55:43 hmmm will have to look at the tex4ebook documentation
+2018/07/19 14:55:52 cause the options are very different from before
+2018/07/19 14:57:07 okay so that worked, lets see if it looks nice
+2018/07/19 14:59:04 ah will probably need to compile twice to get it to show table of contents
+2018/07/19 15:01:20 I'm not 100% sure how he got it to work with the others. lets ee if one of the others does have a table of contents.
+2018/07/19 15:02:21 yes it looks like it, oh I know epub table of contents are often at the end.
+2018/07/19 15:02:44 anyways i g2g
+2018/07/19 15:02:59 will just git commit and finish this of later
+2018/07/19 15:04:06 it compiles epub anyways
+2018/07/19 15:04:33 will figure out table of contents next time

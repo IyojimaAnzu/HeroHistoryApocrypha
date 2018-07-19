@@ -1,0 +1,16 @@
+FROM ubuntu:latest
+RUN apt-get update && apt-get install -y --no-install-recommends \
+  ocl-icd-libopencl1 \
+  ocl-icd-opencl-dev \
+  ca-certificates \
+  pocl-opencl-icd \
+  opencl-headers \
+  complexity \
+  automake \
+  valgrind \
+  clang  \
+  make \
+  git 
+RUN git clone -b dev https://gitlab.com/liberit/lwonprom.git /srv/lwonprom
+RUN bash -c "cd /srv/lwonprom/; ./compile.sh"
+CMD ["bash", "-c", "cd /srv/lwonprom/; ./mid_quiz.sh"]

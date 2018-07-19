@@ -1,0 +1,12 @@
+FROM ubuntu:latest
+RUN apt-get update && apt-get install -y --no-install-recommends \
+  ocl-icd-libopencl1 \
+  ocl-icd-opencl-dev \
+  pocl-opencl-icd \
+  opencl-headers \
+  automake \
+  clang \
+  make
+RUN mkdir -p /srv/lwonprom
+WORKDIR /srv/lwonprom
+CMD ["bash", "-c","cd /srv/lwonprom/; ./compile.sh"]

@@ -1,0 +1,46 @@
+\documentclass[11pt]{article} %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%% packages %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage[latin1]{inputenc}   % umlaute in input file
+\usepackage[ngerman]{babel}     % newgerman: Worttrennung, Befehle für Umlaute
+\usepackage{hyperref}           % hyperlinks
+\usepackage{tex4ebook}          % title page is now more approproate for ebooks
+
+%%% options %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\setlength{\parindent}{0pt}     % no identation for pragraph
+                                % inter paragraph spacing is config'ed by reader
+
+%%% title page %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\title{Taiwan: East meets West}
+\author{Stefan Schaeckeler}
+\date{}
+\begin{document}
+\DeclareLanguage{ngerman}{de-DE} % German language ebook
+\Configure{UniqueIdentifier}{http://students.engr.scu.edu/-sschaeck/}
+
+\Configure{CoverImage} {\HPage{} \ifvmode \IgnorePar\fi \EndP\HCode{<div class="cover-image"\>}\expandafter\csname opf:registerfilename\endcsname\FileName} {\HCode{</div>}\EndHPage{}}
+
+\Configure{CoverMimeType}{image/jpeg}\coverimage{images/cover_large.jpg}
+
+\maketitle
+\input{copyright}
+\tableofcontents
+
+%%% Document %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\input{section.tex}
+\input{section.tex}
+\input{section.tex}
+\input{section.tex}
+\input{section.tex}
+\input{section.tex}
+\input{section.tex}
+\input{section.tex}
+
+
+\end{document}
+
+

@@ -11,22 +11,22 @@ An already written novel requires perhaps some tweaking.
 
 ## Download
 
-    template ebook.zip
-    formatted versions in epub, pdf, ps and an HTML preview of the epub version 
+* template ebook.zip
+* formatted versions in epub, pdf, ps and an HTML preview of the epub version 
 
 ## Organization of the Template
 
 The template generates an epub version as well as conventional dvi, ps and pdf
 book versions.
 
-    Makefile governs the compilation. For all targets see make help.
-    ebook.tex is the starting point for the epub version and book.tex is the
+* Makefile governs the compilation. For all targets see make help.
+* ebook.tex is the starting point for the epub version and book.tex is the
 starting point for the conventional dvi, ps and pdf book versions. They tie
 together:
-        images/*: cover
-        copyright.tex: front matter copyright
-        section??.tex: the actual novel 
-    ebook.mk4 and tex4ht.cfg work around issues in tex4ht and tex4ebook. Further
+**   images/*: cover
+**      copyright.tex: front matter copyright
+**      section??.tex: the actual novel 
+*    ebook.mk4 and tex4ht.cfg work around issues in tex4ht and tex4ebook. Further
 issues are worked around in the preamble of ebook.tex. 
 
 ## Usage
@@ -37,14 +37,12 @@ add an author in the titlepage environment.
 
 In ebook.tex change only
 
-```
-    \title: title of the novel
-    \author: author of the novel
-    \DeclareLanguage: language code of the novel
-    \UniqueIdentifier: an URL supporting the ebook (my patch tex4ebook.4ht.diff
+*    \title: title of the novel
+*    \author: author of the novel
+*    \DeclareLanguage: language code of the novel
+*    \UniqueIdentifier: an URL supporting the ebook (my patch tex4ebook.4ht.diff
 - committed)
-    \coverimage: cover image picture (jpeg, png) 
-```
+*    \coverimage: cover image picture (jpeg, png) 
 
 This information is used for the front matter as well as for the ebook meta
 information.
@@ -84,16 +82,30 @@ feature).
 
 ##  Required Software
 
-    tex4ebook
-    make4ht
-    a modern latex version including tex4ht (under Debian 7, texlive and tex4ht
+*    tex4ebook
+*    make4ht
+*    a modern latex version including tex4ht (under Debian 7, texlive and tex4ht
 work fine for me)
-    optionally an ebook reader such as fbreader or azardi 
+*    optionally an ebook reader such as fbreader or azardi 
 
 After installing the required software, but before making any modifications to
-the template, try out if it works for you. Unzip the template, then run make
-clean epub; ls -la ebook.epub as well as make clean dvi; ls -la book.dvi, make
-clean ps; ls -la book.ps and make clean pdf; ls -la book.pdf. You should see now
+the template, try out if it works for you. 
+
+1. Unzip the template, then run 
+```
+make clean epub; 
+ls -la ebook.epub;
+# for dvi
+make clean dvi; 
+ls -la book.dvi;
+# for ps
+make clean ps; 
+ls -la book.ps;
+# for pdf 
+make clean pdf; 
+ls -la book.pdf;
+```
+You should see now
 these 4 newly generated files in the current working directory: ebook.epub,
 book.dvi, book.ps and book.pdf. You also see a lot of temporary files. A make
 clean deleted them.

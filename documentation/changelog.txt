@@ -1,0 +1,16 @@
+2018/07/19 14:18:06 hello
+2018/07/19 14:18:26 okay so i've made the initial project and now for adding the continuous integration.
+2018/07/19 14:19:02 first I'll start off with a docker image that I used on lwonprom
+2018/07/19 14:21:39 hmm strang error from the bash linter
+2018/07/19 14:21:43 strange
+2018/07/19 14:22:02 I guess I'll download an MIT license for it
+2018/07/19 14:24:27 there fixed the bash error
+2018/07/19 14:26:36 also lets see if can get it to actually compile on this computer, as it wasn't working earlier.
+2018/07/19 14:27:08 ah it's german lets update that to English
+2018/07/19 14:30:34 hmmm have to add the build files to the gitignore
+2018/07/19 14:33:03 okay that looks good so will commit and push that
+2018/07/19 14:33:43 right that's a remote computer
+2018/07/19 14:34:35 i don't see an epub, maybe there is something else to do
+2018/07/19 14:35:15 I'll make the README
+2018/07/19 14:36:40 okay lets see how it looks on gitlab
+2018/07/19 14:38:55 hmmm how to do nested ordered lists on markdown?

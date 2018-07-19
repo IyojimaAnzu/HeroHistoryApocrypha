@@ -23,9 +23,9 @@ book versions.
 * ebook.tex is the starting point for the epub version and book.tex is the
 starting point for the conventional dvi, ps and pdf book versions. They tie
 together:
-**   images/*: cover
-**      copyright.tex: front matter copyright
-**      section??.tex: the actual novel 
+ *   images/*: cover
+ *      copyright.tex: front matter copyright
+ *      section??.tex: the actual novel 
 *    ebook.mk4 and tex4ht.cfg work around issues in tex4ht and tex4ebook. Further
 issues are worked around in the preamble of ebook.tex. 
 

@@ -1,3 +1,3 @@
 #!/bin/bash
 ./test.test 
-return $(./test.test |grep -c "not ok" )
+exit "$(./test.test |grep -c "not ok" )"

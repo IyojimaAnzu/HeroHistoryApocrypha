@@ -22,6 +22,7 @@ compile:
           tex4ht
           tidy
           make
+          zip
     script: make epub ps pdf dvi
     artifacts:
         paths:

@@ -18,6 +18,7 @@ compile:
           texlive-extra-utils
           texlive-fonts-recommended
           texlive-latex-recommended
+          tex4ht-common
           tidy
           make
     script: make epub ps pdf dvi

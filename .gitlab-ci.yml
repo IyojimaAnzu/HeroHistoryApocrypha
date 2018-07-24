@@ -18,18 +18,19 @@ compile:
           texlive-extra-utils
           texlive-fonts-recommended
           texlive-latex-recommended
+          tidy
           make
-    script: make
+    script: make epub ps pdf dvi
     artifacts:
         paths:
             - ./
 
-# check:
-#    stage: quiz
-#    before_script:
-#        - apt-get update && apt-get install -y --no-install-recommends
-#          make
-#    script: make check
+check:
+   stage: quiz
+   #   before_script:
+   #       - apt-get update && apt-get install -y --no-install-recommends
+   #          bash 
+   script: ./test.sh
 #
 # benchmarking
 # performance

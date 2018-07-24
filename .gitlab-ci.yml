@@ -18,6 +18,7 @@ compile:
           texlive-extra-utils
           texlive-fonts-recommended
           texlive-latex-recommended
+          ghostscript
           tex4ht
           tidy
           make
@@ -27,11 +28,11 @@ compile:
             - ./
 
 check:
-   stage: quiz
-   #   before_script:
-   #       - apt-get update && apt-get install -y --no-install-recommends
-   #          bash 
-   script: ./test.sh
+    stage: quiz
+    #   before_script:
+    #       - apt-get update && apt-get install -y --no-install-recommends
+    #          bash
+    script: ./test.sh
 #
 # benchmarking
 # performance

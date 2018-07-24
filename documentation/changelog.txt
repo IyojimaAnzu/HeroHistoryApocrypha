@@ -34,3 +34,4 @@
 2018/07/19 15:02:59 will just git commit and finish this of later
 2018/07/19 15:04:06 it compiles epub anyways
 2018/07/19 15:04:33 will figure out table of contents next time
+2018/07/19 15:07:03 I'll have to make an pre-add hook to make clean or something

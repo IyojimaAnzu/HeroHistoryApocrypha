@@ -1,0 +1,38 @@
+---
+image: ubuntu:latest
+
+
+stages:
+    - compile
+    - quiz
+
+
+wherami:
+    stage: compile
+    script: env; echo $PWD; whereis make;
+
+compile:
+    stage: compile
+    before_script:
+        - apt-get update && apt-get install -y --no-install-recommends
+          texlive-latex-extras
+          automake
+          make
+    script: ./compile.sh
+    artifacts:
+        paths:
+            - ./
+              ./program/.deps/
+
+check:
+    stage: quiz
+    before_script:
+        - apt-get update && apt-get install -y --no-install-recommends
+          make
+    script: make check
+
+# benchmarking
+# performance
+# memory
+# code coverage
+# test coverage

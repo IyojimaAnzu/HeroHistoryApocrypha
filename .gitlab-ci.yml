@@ -15,22 +15,20 @@ compile:
     stage: compile
     before_script:
         - apt-get update && apt-get install -y --no-install-recommends
-          texlive-latex-extras
-          automake
+          texlive-extra-utils
           make
-    script: ./compile.sh
+    script: make
     artifacts:
         paths:
             - ./
-              ./program/.deps/
 
-check:
-    stage: quiz
-    before_script:
-        - apt-get update && apt-get install -y --no-install-recommends
-          make
-    script: make check
-
+# check:
+#    stage: quiz
+#    before_script:
+#        - apt-get update && apt-get install -y --no-install-recommends
+#          make
+#    script: make check
+#
 # benchmarking
 # performance
 # memory

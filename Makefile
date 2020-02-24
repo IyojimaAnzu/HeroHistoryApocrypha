@@ -91,3 +91,5 @@ clean:
 	tex4ht.env \
 	${book}.dvi ${book}.ps ${book}.pdf ${book}.aux ${book}.log ${book}.out ${book}.toc ${book}.tpt  \
 	${ebook}.epub ${ebook}*x.png ${ebook}.4ct ${ebook}.4tc ${ebook}.aux ${ebook}.css ${ebook}.dvi ${ebook}.html ${ebook}.idv ${ebook}.lg ${ebook}.log ${ebook}.ncx ${ebook}*.html ${ebook}.tmp ${ebook}.xref content.opf ${ebook}-epub* ${BOOK_FILENAME}.pdf ${BOOK_FILENAME}.epub
+	rm -f $(addsuffix .aux, $(CHAPTERS)) $(addsuffix .log, $(CHAPTERS)) $(addsuffix .out, $(CHAPTERS)) \
+	    $(addsuffix .pdf, $(CHAPTERS))

@@ -10,7 +10,7 @@ cover=images/cover
 CHAPTERS := \
 	uhimi_ch1
 
-default: epub pdf
+default: epub pdf raw
 
 # dvi output uses .eps figure files
 dvi:
@@ -39,6 +39,14 @@ pdf:
 epub:
 	tex4ebook -c tex4ht.cfg ${ebook}
 	mv ${ebook}.epub ${BOOK_FILENAME}.epub
+
+raw:
+	for ch in ${CHAPTERS}; \
+	do \
+		detex $${ch}_text | sed -e 's/---/-/g' -e 's/--/-/g' -e 's/``/"/g' \
+		    -e "s/''/\"/g" > $${ch}_raw.txt; \
+	done
+
 
 
 cover:

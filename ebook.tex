@@ -1,9 +1,9 @@
-\documentclass[11pt]{article} %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[11pt,a5paper]{book} %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%% packages %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\usepackage[latin1]{inputenc}   % umlaute in input file
-\usepackage[english]{babel}     % newgerman: Worttrennung, Befehle für Umlaute
+\usepackage[utf8]{inputenc}   % umlaute in input file
+\usepackage[english]{babel}     % newgerman: Worttrennung, Befehle fÃ¼r Umlaute
 \usepackage{hyperref}           % hyperlinks
 \usepackage{tex4ebook}          % title page is now more approproate for ebooks
 
@@ -12,33 +12,38 @@
 \setlength{\parindent}{0pt}     % no identation for pragraph
                                 % inter paragraph spacing is config'ed by reader
 
-%%% title page %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\chapterimage}{nothing}
 
-\title{Taiwan: East meets West}
-\author{Stefan Schaeckeler}
+\newcommand{\newchapter}[2]{
+    \renewcommand{\chapterimage}{#2}
+    \chapter{#1}
+}
+
+\title{Hero History Apocrypha}
+\author{Akashiro Aoi}
 \date{}
+
 \begin{document}
+
+
+
+%%% title page %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \DeclareLanguage{english}{en} % English language ebook
-\Configure{UniqueIdentifier}{http://students.engr.scu.edu/-sschaeck/}
+\Configure{UniqueIdentifier}{http://github.com/IyojimaAnzu/HeroHistoryApocrypha}
 
-\Configure{CoverImage} {\HPage{} \ifvmode \IgnorePar\fi \EndP\HCode{<div class="cover-image"\>}\expandafter\csname opf:registerfilename\endcsname\FileName} {\HCode{</div>}\EndHPage{}}
+%\Configure{CoverImage} {\HPage{} \ifvmode \IgnorePar\fi \EndP\HCode{<div class="cover-image"\>}\expandafter\csname opf:registerfilename\endcsname\FileName} {\HCode{</div>}\EndHPage{}}
 
-\Configure{CoverMimeType}{image/jpeg}\coverimage{images/cover_large.jpg}
+%\Configure{CoverMimeType}{image/jpeg}\coverimage{images/cover_large.jpg}
 
+\pagestyle{empty}
 \maketitle
-\input{copyright}
+%\input{copyright}
 \tableofcontents
 
 %%% Document %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\input{section.tex}
-\input{section.tex}
-\input{section.tex}
-\input{section.tex}
-\input{section.tex}
-\input{section.tex}
-\input{section.tex}
-\input{section.tex}
+\part{Uesato Hinata is a Miko}
+        \input{uhimi_ch1_text.tex}
 
 
 \end{document}

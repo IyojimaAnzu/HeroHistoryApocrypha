@@ -1,5 +1,25 @@
 local filter = require "make4ht-filter"
+local domfilter = require "make4ht-domfilter"
 
 local my_filter = filter{"cleanspan", "fixligatures", "hruletohr"}
 Make:htlatex()
 Make:match("html$",my_filter)
+
+
+local process = domfilter { function(dom)
+  -- process headers
+  for _,  header in ipairs(dom:query_selector "div.chapter-header") do
+    -- find chapter toc id
+    for _, a in ipairs(header:query_selector "h2 a") do
+      local id = a:get_attribute("id")
+      if id then
+        -- move the
+        a:set_attribute("id", nil)
+        header:set_attribute("id", id)
+      end
+    end
+  end
+  return dom
+end}
+
+Make:match("html$", process)

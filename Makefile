@@ -27,8 +27,8 @@ ps:     dvi
 # pdf output uses .pdf figure files
 # for make pdf, a make clean may be necessary after a make dvi
 pdf:
+	pdflatex ${book} # generate ToC file
 	pdflatex ${book}
-	thumbpdf ${book}
 	mv ${book}.pdf ${BOOK_FILENAME}.pdf
 	for ch in ${CHAPTERS}; \
 	do \

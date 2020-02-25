@@ -82,17 +82,6 @@ raw:
 		    -e "s/''/\"/g" > $${ch}_raw.txt; \
 	done
 
-
-
-cover:
-	exit 1; # obsolete
-	jpeg2ps ${cover}.jpg > ${cover}.eps
-	epstopdf ${cover}.eps
-	convert ${cover}.jpg -resize 50% ${cover}_small.jpg
-	jpeg2ps ${cover}_small.jpg > ${cover}_small.eps
-	epstopdf ${cover}_small.eps
-
-
 help:
 	@echo "targets:"
 	@echo "- dvi"
@@ -102,7 +91,6 @@ help:
 	@echo "- words"
 	@echo "- backup"
 	@echo "- xdvi"
-	@echo "- cover"
 	@echo "- help"
 	@echo "- clean"
 

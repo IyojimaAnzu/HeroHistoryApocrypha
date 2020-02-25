@@ -80,7 +80,7 @@ raw:
 	for ch in ${CHAPTERS}; \
 	do \
 		detex $${ch}_text | sed -e 's/---/-/g' -e 's/--/-/g' -e 's/``/"/g' \
-		    -e "s/''/\"/g" > $${ch}_raw.txt; \
+		    -e "s/''/\"/g" -e "s/\`/'/g" > $${ch}_raw.txt; \
 	done
 
 help:

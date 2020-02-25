@@ -73,6 +73,7 @@ pdf: $(FULL_IMAGES)
 # .epub to be viewed with fbreader etc
 epub: $(EPUB_IMAGES)
 	tex4ebook -c tex4ht.cfg ${ebook}
+	tex4ebook -c tex4ht.cfg ${ebook}
 	mv ${ebook}.epub ${BOOK_FILENAME}.epub
 
 raw:

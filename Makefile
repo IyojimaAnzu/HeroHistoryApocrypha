@@ -1,14 +1,15 @@
 # source file - no spaces after the defintion
 BOOK_NAME=HeroHistoryApocrypha
-CH=1
-REV=1
+CH=2
+REV=0
 BOOK_FILENAME=${BOOK_NAME}_v${CH}.${REV}
 
 book=book
 ebook=ebook
 
 CHAPTERS := \
-	uhimi_ch1
+	uhimi_ch1 \
+	uhimi_ch2 \
 
 IMAGE_URLS := \
 	https://i.postimg.cc/y1vBRYTM/uhimi-ch1-cover.jpg?dl=1 \

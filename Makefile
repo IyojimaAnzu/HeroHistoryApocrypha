@@ -13,7 +13,9 @@ CHAPTERS := \
 
 IMAGE_URLS := \
 	https://i.postimg.cc/y1vBRYTM/uhimi-ch1-cover.jpg?dl=1 \
-	https://i.postimg.cc/hg6CFBXh/uhimi-ch1-1.jpg?dl=1
+	https://i.postimg.cc/hg6CFBXh/uhimi-ch1-1.jpg?dl=1 \
+	https://i.postimg.cc/Syb4J38J/uhimi-ch2-cover.jpg?dl=1 \
+	https://i.postimg.cc/5JppTQx6/uhimi-ch2-1.jpg?dl=1 \
 
 FULL_IMG_DIR:=images
 EPUB_IMG_DIR:=epub_images

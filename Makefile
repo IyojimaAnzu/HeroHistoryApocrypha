@@ -82,8 +82,7 @@ epub: $(EPUB_IMAGES)
 raw:
 	for ch in ${CHAPTERS}; \
 	do \
-		detex $${ch}_text | sed -e 's/---/-/g' -e 's/--/-/g' -e 's/``/"/g' \
-		    -e "s/''/\"/g" -e "s/\`/'/g" > $${ch}_raw.txt; \
+		sed -E -e 's/\\newchapter\{([^}]+)\}.*$$/\1/' -e 's/\\thispagestyle\{.*$$//' -e 's/\\includegraphics[[{].*$$//' $${ch}_text.tex | detex -t  > $${ch}_raw.txt; \
 	done
 
 help:

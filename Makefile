@@ -1,15 +1,23 @@
 # source file - no spaces after the defintion
 BOOK_NAME=HeroHistoryApocrypha
-CH=2
+
+PARTS := \
+	uhimi \
+
+UHIMI_CHAPTERS:=2
+
+define part_chapters
+$($(shell echo $(1) | tr [a-z] [A-Z])_CHAPTERS)
+endef
+
+# Sums up total number of chapters across all parts
+CH:=$(shell expr 0 $(foreach part, $(PARTS), + $(call part_chapters,$(part))))
+
 REV=0
 BOOK_FILENAME=${BOOK_NAME}_v${CH}.${REV}
 
 book=book
 ebook=ebook
-
-CHAPTERS := \
-	uhimi_ch1 \
-	uhimi_ch2 \
 
 IMAGE_URLS := \
 	https://i.postimg.cc/y1vBRYTM/uhimi-ch1-cover.jpg?dl=1 \
@@ -46,6 +54,33 @@ default: epub pdf raw
 
 $(eval $(foreach img, $(IMAGE_URLS), $(call fetch_img,$(img))))
 
+define setup_chapter
+CHAPTER := $1_ch$2
+CHAPTER_TEXT := $$(CHAPTER)_text.tex
+
+$$(CHAPTER).tex: gen-chapter.sh $$(CHAPTER_TEXT)
+	./$$< -p $1 -c $2 -o $$@
+
+$$(CHAPTER).pdf: $$(CHAPTER).tex $(FULL_IMAGES)
+	pdflatex $$<
+
+pdf:: $$(CHAPTER).pdf
+
+$$(CHAPTER)_raw.txt: $$(CHAPTER_TEXT)
+	sed -E -e 's/\\newchapter\{([^}]+)\}.*$$$$/\1/' -e 's/\\thispagestyle\{.*$$$$//' \
+	    -e 's/\\includegraphics[[{].*$$$$//' $$< \
+	  | detex -t  > $$@;
+
+raw:: $$(CHAPTER)_raw.txt
+
+endef
+
+define chapter_list
+$(shell seq 1 $(call part_chapters,$1))
+endef
+
+$(eval $(foreach part, $(PARTS), $(foreach ch, $(call chapter_list,$(part)), $(call setup_chapter,$(part),$(ch)))))
+
 $(EPUB_IMG_DIR)/%: $(FULL_IMG_DIR)/%
 	mkdir -p $(dir $@)
 	convert $< -resize "1000>" $@
@@ -64,26 +99,18 @@ ps:     dvi
 
 # pdf output uses .pdf figure files
 # for make pdf, a make clean may be necessary after a make dvi
-pdf: $(FULL_IMAGES)
+$(BOOK_FILENAME).pdf: $(FULL_IMAGES)
 	pdflatex ${book} # generate ToC file
 	pdflatex ${book}
-	mv ${book}.pdf ${BOOK_FILENAME}.pdf
-	for ch in ${CHAPTERS}; \
-	do \
-		pdflatex $${ch}; \
-	done
+	mv ${book}.pdf $@
+
+pdf:: $(BOOK_FILENAME).pdf
 
 # .epub to be viewed with fbreader etc
 epub: $(EPUB_IMAGES)
 	tex4ebook -c tex4ht.cfg ${ebook}
 	tex4ebook -c tex4ht.cfg ${ebook}
 	mv ${ebook}.epub ${BOOK_FILENAME}.epub
-
-raw:
-	for ch in ${CHAPTERS}; \
-	do \
-		sed -E -e 's/\\newchapter\{([^}]+)\}.*$$/\1/' -e 's/\\thispagestyle\{.*$$//' -e 's/\\includegraphics[[{].*$$//' $${ch}_text.tex | detex -t  > $${ch}_raw.txt; \
-	done
 
 help:
 	@echo "targets:"

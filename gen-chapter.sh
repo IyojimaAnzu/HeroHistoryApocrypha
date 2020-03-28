@@ -1,3 +1,52 @@
+#!/bin/sh
+
+unset PART
+unset CHAPTER
+unset OUTPUT
+
+while getopts "c:o:p:" o
+do
+	case "$o" in
+	c)
+		CHAPTER=$OPTARG
+		;;
+	o)
+		OUTPUT=$OPTARG
+		;;
+	p)
+		PART=$OPTARG
+		;;
+	esac
+done
+
+shift $((OPTIND - 1))
+OPTIND=1
+
+if [ -n "$1" ]
+then
+        echo "Unrecognized argument $1"
+        exit 1
+fi
+
+if [ -z "$PART" ]
+then
+	echo "-p flag is mandatory"
+	exit 1
+fi
+
+if [ -z "$CHAPTER" ]
+then
+	echo "-c flag is mandatory"
+	exit 1
+fi
+
+if [ -z "$OUTPUT" ]
+then
+	echo "-o flag is mandatory"
+	exit 1
+fi
+
+cat -<<EOF > $OUTPUT
 \documentclass[12pt,a5paper,oneside]{book} %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%% preample %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -8,7 +57,7 @@
 \usepackage[T1]{fontenc}        % euro quality fonts [T1] (togeth. w/ textcomp)
 \usepackage{textcomp, amssymb}  % additional symbols (there are more packages)
 \usepackage[utf8]{inputenc}   % umlaute in input file
-\usepackage[english]{babel}     % newgerman: Worttrennung, Befehle für Umlaute
+\usepackage[english]{babel}
 \usepackage{anysize}            % margin package sets tighter margins
 
 \usepackage[a4paper,top=2cm,bottom=2cm,left=2cm,right=2cm]{geometry}
@@ -77,9 +126,10 @@
 
 \begin{document}
 
-\input{uhimi_ch2_text.tex}
+\setcounter{chapter}{$(($CHAPTER - 1))}
+\input{${PART}_ch${CHAPTER}_text.tex}
 
 
 \end{document}
 
-
+EOF

@@ -54,9 +54,12 @@ default: epub pdf raw
 
 $(eval $(foreach img, $(IMAGE_URLS), $(call fetch_img,$(img))))
 
+CHAPTER_LIST :=
+
 define setup_chapter
 CHAPTER := $1_ch$2
 CHAPTER_TEXT := $$(CHAPTER)_text.tex
+CHAPTER_LIST := $$(CHAPTER_LIST) $$(CHAPTER_TEXT)
 
 $$(CHAPTER).tex: gen-chapter.sh $$(CHAPTER_TEXT)
 	./$$< -p $1 -c $2 -o $$@
@@ -96,10 +99,9 @@ dvi:
 ps:     dvi
 	dvips ${book}.dvi -o ${book}.ps
 
-
 # pdf output uses .pdf figure files
 # for make pdf, a make clean may be necessary after a make dvi
-$(BOOK_FILENAME).pdf: $(FULL_IMAGES)
+$(BOOK_FILENAME).pdf: ${book}.tex $(CHAPTER_LIST) $(FULL_IMAGES)
 	pdflatex ${book} # generate ToC file
 	pdflatex ${book}
 	mv ${book}.pdf $@
@@ -107,7 +109,7 @@ $(BOOK_FILENAME).pdf: $(FULL_IMAGES)
 pdf:: $(BOOK_FILENAME).pdf
 
 # .epub to be viewed with fbreader etc
-epub: $(EPUB_IMAGES)
+epub: ${ebook}.tex $(CHAPTER_LIST) $(EPUB_IMAGES)
 	tex4ebook -c tex4ht.cfg ${ebook}
 	tex4ebook -c tex4ht.cfg ${ebook}
 	mv ${ebook}.epub ${BOOK_FILENAME}.epub

@@ -72,8 +72,9 @@ $$(CHAPTER).pdf: $$(CHAPTER).tex $(FULL_IMAGES)
 pdf:: $$(CHAPTER).pdf
 
 $$(CHAPTER)_raw.txt: $$(CHAPTER_TEXT)
-	sed -E -e 's/\\newchapter\{([^}]+)\}.*$$$$/\1/' -e 's/\\thispagestyle\{.*$$$$//' \
-	    -e 's/\\includegraphics[[{].*$$$$//' $$< \
+	sed -E -e 's/\\newchapter\{([^}]+)\}.*$$$$/\1/' -e '/\\thispagestyle\{.*$$$$/d' \
+	    -e '/\\includegraphics[[{].*$$$$/d' -e '/\\begin\{figure\}.*$$$$/d' \
+	    -e '/\\end\{figure\}.*$$$$/,+1d' $$< \
 	  | detex -t  > $$@;
 
 raw:: $$(CHAPTER)_raw.txt

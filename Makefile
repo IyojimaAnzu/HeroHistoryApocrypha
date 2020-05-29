@@ -4,7 +4,7 @@ BOOK_NAME=HeroHistoryApocrypha
 PARTS := \
 	uhimi \
 
-UHIMI_CHAPTERS:=4
+UHIMI_CHAPTERS:=5
 
 define part_chapters
 $($(shell echo $(1) | tr [a-z] [A-Z])_CHAPTERS)
@@ -28,6 +28,8 @@ IMAGE_URLS := \
 	https://i.postimg.cc/4ZW3tGQR/uhimi-ch3-1.jpg?dl=1 \
 	https://i.postimg.cc/pRFzv9J2/uhimi-ch4-cover.jpg?dl=1 \
 	https://i.postimg.cc/ZZgpXP37/uhimi-ch4-1.jpg?dl=1 \
+	https://i.postimg.cc/y7gGM5Cz/uhimi-ch5-cover.jpg?dl=1 \
+	https://i.postimg.cc/YMyVy7V3/uhimi-ch5-1.jpg?dl=1 \
 
 FULL_IMG_DIR:=images
 EPUB_IMG_DIR:=epub_images

@@ -5,9 +5,14 @@ PARTS := \
 	uhimi \
 
 UHIMI_CHAPTERS:=5
+UHIMI_NAME="Uesato Hinata is a Miko"
 
 define part_chapters
 $($(shell echo $(1) | tr [a-z] [A-Z])_CHAPTERS)
+endef
+
+define part_name
+$($(shell echo $(1) | tr [a-z] [A-Z])_NAME)
 endef
 
 # Sums up total number of chapters across all parts
@@ -106,9 +111,18 @@ dvi:
 ps:     dvi
 	dvips ${book}.dvi -o ${book}.ps
 
+gen_book_args = -p $(1) -c $(call part_chapters,$(1)) -n $(call part_name,$(1))
+
+$(info $(foreach part, $(PARTS), $(call gen_book_args,$(part))))
+
+# This doesn't really need to depend on the chapter .tex files but this is the
+# only way to ensure that this will be regenerated if a new chapter is added
+book_parts.tex: gen-book-inc.sh $(CHAPTER_LIST)
+	./$< -o $@ $(foreach part, $(PARTS), $(call gen_book_args,$(part)))
+
 # pdf output uses .pdf figure files
 # for make pdf, a make clean may be necessary after a make dvi
-$(BOOK_FILENAME).pdf: ${book}.tex $(CHAPTER_LIST) $(FULL_IMAGES)
+$(BOOK_FILENAME).pdf: ${book}.tex book_parts.tex $(FULL_IMAGES)
 	pdflatex ${book} # generate ToC file
 	pdflatex ${book}
 	mv ${book}.pdf $@
@@ -116,7 +130,7 @@ $(BOOK_FILENAME).pdf: ${book}.tex $(CHAPTER_LIST) $(FULL_IMAGES)
 pdf:: $(BOOK_FILENAME).pdf
 
 # .epub to be viewed with fbreader etc
-epub: ${ebook}.tex $(CHAPTER_LIST) $(EPUB_IMAGES)
+epub: ${ebook}.tex book_parts.tex $(EPUB_IMAGES)
 	tex4ebook -c tex4ht.cfg ${ebook}
 	tex4ebook -c tex4ht.cfg ${ebook}
 	mv ${ebook}.epub ${BOOK_FILENAME}.epub

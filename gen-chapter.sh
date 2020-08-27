@@ -59,21 +59,18 @@ cat -<<EOF > $OUTPUT
 \usepackage[utf8]{inputenc}   % umlaute in input file
 \usepackage[english]{babel}
 \usepackage{anysize}            % margin package sets tighter margins
+\usepackage{ifpdf}
+
+\usepackage{tikz}
+\usepackage{lipsum}
+\usepackage[many]{tcolorbox}
+\usepackage{wrapfig}
+\usepackage{scrextend}
+
 
 \usepackage[a4paper,top=2cm,bottom=2cm,left=2cm,right=2cm]{geometry}
 
-\usepackage{ifpdf}              % if pdflatex then ... else ...
-
-%newer versions of latex don't need pdftex and dvips argument respectively
-\ifpdf
-  \usepackage{aeguill}          % PS converted CM fonts for better acro preview
-  \usepackage[pdftex]{graphicx} % graphics packages
-  \usepackage[pdftex]{color}    % color packages
-  \usepackage[pdftex]{hyperref}
-\else
-  \usepackage[dvips]{graphicx}  % graphics packages
-  \usepackage[dvips]{hyperref}
-\fi
+\usepackage{color}    % color packages
 \usepackage{float}
 
 \graphicspath{ {./images/} }
@@ -97,13 +94,23 @@ cat -<<EOF > $OUTPUT
 }
 \makeatother
 
+\newtcolorbox{graphpaperBox}[1][]{
+    enhanced,
+    breakable,
+    colback=white,
+    underlay={%
+        \begin{tcbclipinterior}
+            \draw[step=5mm, line width=0.2mm, black!20!white, shift={(interior.north west)}] (0,0)  grid (interior.south east);
+        \end{tcbclipinterior}
+    }
+    #1}
+
+\definecolor{diaryborder}{RGB}{181,183,182}
 
 %%% style and finetuning %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % pagestyle
 \pagestyle{plain}               % headings, empty, plain
-
-\hypersetup{colorlinks=false}   % don't print colored links on paper
 
 % no indentation for paragraphs and space inbetween paragraphs  (euro standard)
 \setlength{\parindent}{0pt}
@@ -117,11 +124,7 @@ cat -<<EOF > $OUTPUT
 % E.g. The \href{http://www.ctan.org}{CTAN} website.
 % E.g. \author{First- Lastname $<$\href{mailto: email@domain}{email@domain}$>$}
 
-\ifpdf
-  \usepackage[pdftex]{hyperref}
-\else
-  \usepackage[dvips]{hyperref}
-\fi
+\usepackage{hyperref}
 \hypersetup{colorlinks=false}   % don't print colors on paper
 
 \begin{document}

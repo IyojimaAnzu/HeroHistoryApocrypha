@@ -3,9 +3,13 @@ BOOK_NAME=HeroHistoryApocrypha
 
 PARTS := \
 	uhimi \
+	fuyuyu \
 
 UHIMI_CHAPTERS:=5
 UHIMI_NAME="Uesato Hinata is a Miko"
+
+FUYUYU_CHAPTERS:=1
+FUYUYU_NAME="Fuyou Yuuna is not a Hero"
 
 define part_chapters
 $($(shell echo $(1) | tr [a-z] [A-Z])_CHAPTERS)

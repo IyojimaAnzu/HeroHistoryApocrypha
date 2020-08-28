@@ -42,6 +42,7 @@ IMAGE_URLS := \
 	https://i.postimg.cc/Y7b56VWf/fuyuyu-ch1-cover.jpg?dl=1 \
 	https://i.postimg.cc/vQyJhwhX/fuyuyu-ch1-1.jpg?dl=1 \
 	https://i.postimg.cc/vGHQ0zj9/fuyou-diary-date-ch1.png?dl=1 \
+	https://i.postimg.cc/7DSFq87D/fuyou-diary-flowers.png?dl=1 \
 
 FULL_IMG_DIR:=images
 EPUB_IMG_DIR:=epub_images

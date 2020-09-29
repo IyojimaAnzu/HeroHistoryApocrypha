@@ -8,7 +8,7 @@ PARTS := \
 UHIMI_CHAPTERS:=5
 UHIMI_NAME="Uesato Hinata is a Miko"
 
-FUYUYU_CHAPTERS:=1
+FUYUYU_CHAPTERS:=2
 FUYUYU_NAME="Fuyou Yuuna is not a Hero"
 
 define part_chapters
@@ -43,6 +43,8 @@ IMAGE_URLS := \
 	https://i.postimg.cc/vQyJhwhX/fuyuyu-ch1-1.jpg?dl=1 \
 	https://i.postimg.cc/vGHQ0zj9/fuyou-diary-date-ch1.png?dl=1 \
 	https://i.postimg.cc/7DSFq87D/fuyou-diary-flowers.png?dl=1 \
+	https://i.postimg.cc/ZT2109tF/fuyuyu-ch2-cover.jpg?dl=1 \
+	https://i.postimg.cc/nZ8yJQ1n/fuyuyu-ch2-1.jpg?dl=1 \
 
 FULL_IMG_DIR:=images
 EPUB_IMG_DIR:=epub_images
@@ -121,7 +123,7 @@ ps:     dvi
 
 gen_book_args = -p $(1) -c $(call part_chapters,$(1)) -n $(call part_name,$(1))
 
-$(info $(foreach part, $(PARTS), $(call gen_book_args,$(part))))
+#$(foreach part, $(PARTS), $(call gen_book_args,$(part)))
 
 # This doesn't really need to depend on the chapter .tex files but this is the
 # only way to ensure that this will be regenerated if a new chapter is added

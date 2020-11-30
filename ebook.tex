@@ -6,6 +6,10 @@
 \usepackage[english]{babel}     % newgerman: Worttrennung, Befehle für Umlaute
 \usepackage{hyperref}           % hyperlinks
 \usepackage{tex4ebook}          % title page is now more approproate for ebooks
+\usepackage[many]{tcolorbox}
+\usepackage{textcomp}
+\usepackage{wrapfig}
+\usepackage[export]{adjustbox}
 
 %%% options %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -20,6 +24,9 @@
     \renewcommand{\chapterimage}{#2}
     \chapter{#1}
 }
+
+% FuYuYu diary formatting macros
+\input{diary.tex}
 
 \title{Hero History Apocrypha}
 \author{Akashiro Aoi}

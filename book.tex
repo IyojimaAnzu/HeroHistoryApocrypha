@@ -53,6 +53,10 @@
 \fi
 \hypersetup{colorlinks=false}   % don't print colors on paper
 \usepackage{float}
+\usepackage[many]{tcolorbox}
+\usepackage{textcomp}
+\usepackage{wrapfig}
+\usepackage[export]{adjustbox}
 
 \newcommand{\chapterimage}{nothing}
 
@@ -72,6 +76,9 @@
   {\Huge Chapter \thechapter: #1}
 }
 \makeatother
+
+% FuYuYu diary formatting macros
+\input{diary.tex}
 
 
 \begin{document}

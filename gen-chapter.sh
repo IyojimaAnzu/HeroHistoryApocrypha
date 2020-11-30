@@ -98,18 +98,7 @@ cat -<<EOF > $OUTPUT
 \newcommand{\currentfsize}{\f@size pt}
 \makeatother
 
-\newtcolorbox{graphpaperBox}[1][]{
-    enhanced,
-    breakable,
-    colback=white,
-    underlay={%
-        \begin{tcbclipinterior}
-            \draw[step=12pt, line width=0.2mm, black!10!white, shift={(interior.north west)}] (0,0)  grid (interior.south east);
-        \end{tcbclipinterior}
-    }
-    #1}
-
-\definecolor{diaryborder}{RGB}{181,183,182}
+\input{diary.tex}
 
 %%% style and finetuning %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 

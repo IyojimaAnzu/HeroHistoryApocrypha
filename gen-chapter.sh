@@ -66,7 +66,7 @@ cat -<<EOF > $OUTPUT
 \usepackage[many]{tcolorbox}
 \usepackage{wrapfig}
 \usepackage{scrextend}
-
+\usepackage[export]{adjustbox}
 
 \usepackage[a4paper,top=2cm,bottom=2cm,left=2cm,right=2cm]{geometry}
 

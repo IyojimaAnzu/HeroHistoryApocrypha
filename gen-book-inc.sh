@@ -43,6 +43,8 @@ do
 	echo "\part{$name}" >> $TMP
 	eval chapters=\$${CUR_PART}_CHAPTERS
 	[ -z "$chapters" ] && error "No -c option for '$CUR_PART' provided"
+
+	echo "\setcounter{chapter}{0}" >> $TMP
 	i=1
 	while [ "$i" -le "$chapters" ]
 	do

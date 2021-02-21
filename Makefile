@@ -8,7 +8,7 @@ PARTS := \
 UHIMI_CHAPTERS:=5
 UHIMI_NAME="Uesato Hinata is a Miko"
 
-FUYUYU_CHAPTERS:=4
+FUYUYU_CHAPTERS:=5
 FUYUYU_NAME="Fuyou Yuuna is not a Hero"
 
 define part_chapters
@@ -49,6 +49,11 @@ IMAGE_URLS := \
 	https://i.postimg.cc/19BXqqmP/fuyuyu-ch3-1.jpg?dl=1 \
 	https://i.postimg.cc/8p12McpV/fuyou-diary-date-ch3.png?dl=1 \
 	https://i.postimg.cc/7wqgJS38/fuyuyu-ch4-cover.jpg?dl=1 \
+	https://i.postimg.cc/y7snHnXM/fuyou-diary-date-ch5.png?dl=1 \
+	https://i.postimg.cc/LmDD6fxn/fuyuyu-ch5-1.jpg?dl=1 \
+	https://i.postimg.cc/ZTqc9RQj/fuyuyu-ch5-2.jpg?dl=1 \
+	https://i.postimg.cc/YpyxQ7K7/fuyuyu-ch5-cover.jpg?dl=1 \
+
 
 FULL_IMG_DIR:=images
 EPUB_IMG_DIR:=epub_images

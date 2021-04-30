@@ -12,7 +12,7 @@ UHIMI_NAME="Uesato Hinata is a Miko"
 FUYUYU_CHAPTERS:=5
 FUYUYU_NAME="Fuyou Yuuna is not a Hero"
 
-KAKUMI_CHAPTERS:=1
+KAKUMI_CHAPTERS:=2
 KAKUMI_NAME:="Karasuma Kumiko is not a Hero"
 
 define part_chapters
@@ -59,6 +59,8 @@ IMAGE_URLS := \
 	https://i.postimg.cc/YpyxQ7K7/fuyuyu-ch5-cover.jpg?dl=1 \
 	https://i.postimg.cc/VYCczhyg/kakumi-ch1-cover.jpg?dl=1 \
 	https://i.postimg.cc/BSffbC40/kakumi-ch1-1.jpg?dl=1 \
+	https://i.postimg.cc/Kxf9JWvw/kakumi-ch2-cover.jpg?dl=1 \
+	https://i.postimg.cc/7qLKcN56/kakumi-ch2-1.jpg?dl=1 \
 
 
 FULL_IMG_DIR:=images

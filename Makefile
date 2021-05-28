@@ -12,8 +12,8 @@ UHIMI_NAME="Uesato Hinata is a Miko"
 FUYUYU_CHAPTERS:=5
 FUYUYU_NAME="Fuyou Yuuna is not a Hero"
 
-KAKUMI_CHAPTERS:=2
-KAKUMI_NAME:="Karasuma Kumiko is not a Hero"
+KAKUMI_CHAPTERS:=3
+KAKUMI_NAME:="Karasuma Kumiko is not a Miko"
 
 define part_chapters
 $($(shell echo $(1) | tr [a-z] [A-Z])_CHAPTERS)
@@ -61,6 +61,8 @@ IMAGE_URLS := \
 	https://i.postimg.cc/BSffbC40/kakumi-ch1-1.jpg?dl=1 \
 	https://i.postimg.cc/Kxf9JWvw/kakumi-ch2-cover.jpg?dl=1 \
 	https://i.postimg.cc/7qLKcN56/kakumi-ch2-1.jpg?dl=1 \
+	https://i.postimg.cc/GccY7TZ4/kakumi-ch3-cover.jpg?dl=1 \
+	https://i.postimg.cc/LmFjPbDB/kakumi-ch3-1.jpg?dl=1 \
 
 
 FULL_IMG_DIR:=images
